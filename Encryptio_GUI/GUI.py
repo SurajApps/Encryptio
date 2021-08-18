@@ -17,6 +17,9 @@ def main_GUI():
         print("Decrypt")
 
     def action_generatekey():
+        generate_window = Window(main_app, width=500, height=500, layout="grid", title="Generate Encryption Key", grid=[0, 0])
+        generate_window_maintext = "Press the button below to Generate an Encryption Key:"
+
         print("Generate Encryption Key")
 
     encrypt_button = PushButton(master=buttton_box, text="Encrypt File", grid=[0, 0], command=action_encrypt)
