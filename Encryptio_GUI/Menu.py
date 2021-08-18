@@ -5,7 +5,10 @@ def Main_Menu():
     menu_app = App(title="Encrypt.io", width=500, height=500, layout="grid")
     button_box = Box(menu_app, layout="grid", grid=[0, 2])
 
-    encrypt_button = PushButton(button_box, text="Encrypt Files", grid=[0, 0])
+    def EncryptLaunch():
+        from Encrypt import Encrypt_Menu
+
+    encrypt_button = PushButton(button_box, text="Encrypt Files", grid=[0, 0], command=EncryptLaunch)
     decrypt_button = PushButton(button_box, text="Decrypt Files", grid=[1, 0])
     genkey_button = PushButton(button_box, text="Generate Encryption Keys", grid=[2, 0])
 
