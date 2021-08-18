@@ -8,9 +8,15 @@ def Main_Menu():
     def EncryptLaunch():
         from Encrypt import Encrypt_Menu
 
+    def DecryptLaunch():
+        from Decrypt import Decrypt_Menu
+
+    def KeyGenLaunch():
+        from KeyGen import KeyGen_Menu
+
     encrypt_button = PushButton(button_box, text="Encrypt Files", grid=[0, 0], command=EncryptLaunch)
-    decrypt_button = PushButton(button_box, text="Decrypt Files", grid=[1, 0])
-    genkey_button = PushButton(button_box, text="Generate Encryption Keys", grid=[2, 0])
+    decrypt_button = PushButton(button_box, text="Decrypt Files", grid=[1, 0], command=DecryptLaunch)
+    genkey_button = PushButton(button_box, text="Generate Encryption Keys", grid=[2, 0], command=KeyGenLaunch)
 
     main_title_text = "Welcome to Encrypt.io!"
     main_text = "Use the following buttons to encrypt, decrypt and generate encryption keys."
