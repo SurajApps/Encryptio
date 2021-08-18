@@ -1,4 +1,4 @@
-from guizero import App, Text, TextBox, Box
+from guizero import App, Text, PushButton, Box, TextBox
 
 
 def Decrypt_Menu():

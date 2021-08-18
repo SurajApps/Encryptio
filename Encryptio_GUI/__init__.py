@@ -1,3 +1,3 @@
-from GUI import main_GUI
+from Menu import Main_Menu
 
-main_GUI()
+Main_Menu()

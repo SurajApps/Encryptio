@@ -1,4 +1,4 @@
-from guizero import App, Text, PushButton, Box
+from guizero import App, Text, PushButton, Box, TextBox
 
 
 def Encrypt_Menu():
