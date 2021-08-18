@@ -1,4 +1,4 @@
-from guizero import App, Text, PushButton, Box, Picture, TextBox
+from guizero import App, Text, PushButton, Box, Picture
 
 
 def Main_Menu():
