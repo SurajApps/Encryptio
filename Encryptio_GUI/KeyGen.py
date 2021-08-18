@@ -10,6 +10,7 @@ def KeyGen_Menu():
     path_name = ""
     temp_space = ""
     complete_key_location = ""
+    file_extension = ".key"
 
     title_text = "Use the following options to setup a Fernet key in your chosen location."
     title = Text(keygen_app, text=title_text, grid=[0, 0])
@@ -28,8 +29,8 @@ def KeyGen_Menu():
     backslash = '''/'''
 
     def CreateKeyPath():
-        nonlocal key_name, path_name, complete_key_location
-        complete_key_location = path_name + backslash + key_name
+        nonlocal key_name, path_name, complete_key_location, file_extension
+        complete_key_location = path_name + backslash + key_name + file_extension
         GenerateFernetKey()
 
     def GenerateFernetKey():
@@ -38,7 +39,7 @@ def KeyGen_Menu():
         with open(complete_key_location, 'wb') as mykey:
             mykey.write(key)
 
-        print(key)
+        # print(key)
 
     key_detail_set = PushButton(keygen_box, text="Generate Fernet Key", grid=[3, 0], command=CreateKeyPath)
 # Path Stuff
@@ -47,7 +48,7 @@ def KeyGen_Menu():
         nonlocal path_name, keygen_app
         path_name = keygen_app.select_folder()
         path_select_box.value = path_name
-        print(path_name)
+        # print(path_name)
 
     path_select = PushButton(path_box, text="Select Key Path", grid=[2, 0], command=key_path_set, align="right")
     path_select_box = TextBox(path_box, grid=[1, 0], multiline=False, width="fill", align="left")
