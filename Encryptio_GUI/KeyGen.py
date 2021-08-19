@@ -3,7 +3,7 @@ from cryptography.fernet import Fernet
 
 
 def KeyGen_Menu():
-    keygen_app = App(title="Generate Encryption Key", width=1000, height=500, layout="grid")
+    keygen_app = App(title="Generate Encryption Key", width=525, height=180, layout="grid")
     path_box = Box(keygen_app, layout="grid", grid=[0, 1])
     keygen_box = Box(keygen_app, layout="grid", grid=[0, 2])
     key_name = ""

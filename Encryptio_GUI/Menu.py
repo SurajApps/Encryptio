@@ -2,7 +2,8 @@ from guizero import App, Text, PushButton, Box, Picture
 
 
 def Main_Menu():
-    menu_app = App(title="Encrypt.io", width=500, height=500, layout="grid")
+    logo_path = "Encryptio_GUI/res/encryption.png"
+    menu_app = App(title="Encrypt.io", width=530, height=650, layout="grid")
     button_box = Box(menu_app, layout="grid", grid=[0, 2])
 
     def EncryptLaunch():
@@ -23,9 +24,7 @@ def Main_Menu():
     main_title = Text(menu_app, text=main_title_text, grid=[0, 0])
     main_text_element = Text(menu_app, text=main_text, grid=[0, 1])
 
-    front_logo_path = "Encryptio_GUI/res/encryption.png"
-    front_logo = Picture(menu_app, image=front_logo_path, grid=[0, 3])
-
+    front_logo = Picture(menu_app, image=logo_path, grid=[0, 3])
     menu_app.display()
 
 

@@ -15,7 +15,7 @@ def Decrypt_Menu():
 
     finalpath = ""
 
-    decrypt_app = App(title="Decrypt Files", width=500, height=500, layout="grid")
+    decrypt_app = App(title="Decrypt Files", width=600, height=210, layout="grid")
     key_box = Box(decrypt_app, layout="grid", grid=[0, 1], width="fill")
     file_box = Box(decrypt_app, layout="grid", grid=[0, 2], width="fill")
 
@@ -35,7 +35,7 @@ def Decrypt_Menu():
     def decrypt_file_set():
         nonlocal file_decrypt
         open_file_title = "Open the File to Decrypt"
-        file_decrypt = decrypt_app.select_file(title=open_file_title, filetypes=[["All Files", "*.*"]])
+        file_decrypt = decrypt_app.select_file(title=open_file_title, filetypes=[["Crypted Files", "*.crypted"]])
         file_textbox.value = file_decrypt
 
     def KeySetup():
@@ -47,10 +47,13 @@ def Decrypt_Menu():
         FileSetup()
 
     def FileSetup():
-        nonlocal file_decrypt, original_file
+        nonlocal file_decrypt, original_file, decrypted_path
 
         with open(file_decrypt, "rb") as file:
             original_file = file.read()
+
+        if file_decrypt.__contains__(".crypted"):
+            decrypted_path = os.path.splitext(file_decrypt)[0]
 
         DecryptFile()
 
@@ -58,9 +61,8 @@ def Decrypt_Menu():
         nonlocal key, original_file, decrypted_file, file_decrypt, decrypt_app, decrypted_path, finalpath
         f = Fernet(key)
 
-        decrypted = f.encrypt(original_file)
+        decrypted = f.decrypt(original_file)
         # print(encrypted_file)
-        decrypted_path = os.path.splitext(file_decrypt)[0]
         with open(decrypted_path, 'wb') as save_decrypted:
             decrypted_file = save_decrypted.write(decrypted)
 

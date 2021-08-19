@@ -10,7 +10,7 @@ def Encrypt_Menu():
     original_file = ""
     encrypted_file = ""
 
-    encrypt_app = App(title="Encrypt Files", width=500, height=500, layout="grid")
+    encrypt_app = App(title="Encrypt Files", width=600, height=210, layout="grid")
     key_box = Box(encrypt_app, layout="grid", grid=[0, 1], width="fill")
     file_box = Box(encrypt_app, layout="grid", grid=[0, 2], width="fill")
 
