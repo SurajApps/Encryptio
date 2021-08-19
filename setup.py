@@ -34,6 +34,7 @@ setuptools.setup(
     url=__url__,
     packages=__packages__,
     classifiers=__classifiers__,
+    install_requires=['guizero', 'cryptography'],
     python_requires='>=3.7',
     entry_points=
     {
