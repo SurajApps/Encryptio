@@ -25,7 +25,6 @@ def Encrypt_Menu():
         open_title = "Open the Fernet Key file"
         key_path = encrypt_app.select_file(title=open_title, filetypes=[["Fernet Keys", "*.key"]])
         key_textbox.value = key_path
-        # print(path_name)
 
     def encrypt_file_set():
         nonlocal file_encrypt
@@ -54,13 +53,13 @@ def Encrypt_Menu():
         f = Fernet(key)
 
         encrypted = f.encrypt(original_file)
-        # print(encrypted_file)
         encrypted_path = file_encrypt + ".crypted"
         with open(encrypted_path, 'wb') as save_encrypted:
             encrypted_file = save_encrypted.write(encrypted)
 
+        encrypt_info_title = "Encryption Successful!"
         encrypt_info_text = "The file: " + file_encrypt + " has been encrypted as: " + encrypted_path
-        encrypt_info = encrypt_app.info(title="Encryption Successful!", text=encrypt_info_text)
+        encrypt_info = encrypt_app.info(title=encrypt_info_title, text=encrypt_info_text)
 
     key_textcontent = "Click the button to set the Fernet key location."
     key_text = Text(key_box, grid=[0, 0], text=key_textcontent)

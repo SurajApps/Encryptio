@@ -30,7 +30,6 @@ def Decrypt_Menu():
         open_title = "Open the Fernet Key file"
         key_path = decrypt_app.select_file(title=open_title, filetypes=[["Fernet Keys", "*.key"]])
         key_textbox.value = key_path
-        # print(path_name)
 
     def decrypt_file_set():
         nonlocal file_decrypt
@@ -62,12 +61,12 @@ def Decrypt_Menu():
         f = Fernet(key)
 
         decrypted = f.decrypt(original_file)
-        # print(encrypted_file)
         with open(decrypted_path, 'wb') as save_decrypted:
             decrypted_file = save_decrypted.write(decrypted)
 
+        decrypt_info_title = "Decryption Successful!"
         decrypt_info_text = "The file: " + file_decrypt + " has been decrypted as: " + decrypted_path
-        decrypt_info = decrypt_app.info(title="Decryption Successful!", text=decrypt_info_text)
+        decrypt_info = decrypt_app.info(title=decrypt_info_title, text=decrypt_info_text)
 
     key_textcontent = "Click the button to set the Fernet key location."
     key_text = Text(key_box, grid=[0, 0], text=key_textcontent)

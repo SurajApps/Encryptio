@@ -22,7 +22,6 @@ def KeyGen_Menu():
     def key_name_change():
         nonlocal name_box, key_name
         key_name = name_box.value
-        print(key_name)
 
     name_box.update_command(key_name_change)
     # name_select = PushButton(keygen_box, text="Set Key Name", grid=[2, 0], command=key_name_change)
@@ -34,12 +33,15 @@ def KeyGen_Menu():
         GenerateFernetKey()
 
     def GenerateFernetKey():
+        nonlocal keygen_app, key_name, path_name, file_extension
         key = Fernet.generate_key()
 
         with open(complete_key_location, 'wb') as mykey:
             mykey.write(key)
 
-        # print(key)
+        info_title = "Encryption Key Generated Successfully"
+        info_text = "The encryption key: " + key_name + file_extension + " has successfully been generated at the path: " + path_name
+        keygen_info = keygen_app.info(title=info_title, text=info_text)
 
     key_detail_set = PushButton(keygen_box, text="Generate Fernet Key", grid=[3, 0], command=CreateKeyPath)
 # Path Stuff
@@ -48,7 +50,6 @@ def KeyGen_Menu():
         nonlocal path_name, keygen_app
         path_name = keygen_app.select_folder()
         path_select_box.value = path_name
-        # print(path_name)
 
     path_select = PushButton(path_box, text="Select Key Path", grid=[2, 0], command=key_path_set, align="right")
     path_select_box = TextBox(path_box, grid=[1, 0], multiline=False, width="fill", align="left")
