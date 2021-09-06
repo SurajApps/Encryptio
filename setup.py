@@ -1,7 +1,7 @@
 import setuptools
 
 __project__ = "Encryptio-GUI-pkg-SurajApps"
-__version__ = "1.0"
+__version__ = "1.1"
 __description__ = "A python module to find encrypt and decrypt files using Fernet encryption"
 __packages__ = ["Encryptio_GUI"]
 __author__ = "Suraj Apps"
