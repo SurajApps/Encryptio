@@ -18,7 +18,6 @@ __classifiers__ = [
     "Operating System :: OS Independent",
     "Topic :: Security :: Cryptography",
     "Topic :: Security"
-
 ]
 
 with open("README.md", "r") as fh:
